@@ -1,6 +1,6 @@
 # BDO-LanguageData-Tool
 
-Công cụ dùng để giải nén/nén, chuyển đổi định dạng tệp về dạng TSV để chỉnh sửa ngôn ngữ trong game Black Dersert Online.
+Công cụ dùng để giải nén/nén, chuyển đổi định dạng tệp về dạng TSV để chỉnh sửa ngôn ngữ trong game Black Desert Online.
 
 Yêu cầu: [SharpZipLib](https://github.com/icsharpcode/SharpZipLib) hoặc bất kỳ thư viện Zlib tương tự.
 
