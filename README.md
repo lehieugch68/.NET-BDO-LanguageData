@@ -11,3 +11,5 @@ Kéo tệp language data của game (bản tiếng Anh là languagedata_en.loc) 
 ```
 Kéo tệp TSV đã chỉnh sửa vào tool để tạo tệp .loc copy vào thư mục game (ads/languagedata_en.loc).
 ```
+
+Nhớ backup file gốc.
