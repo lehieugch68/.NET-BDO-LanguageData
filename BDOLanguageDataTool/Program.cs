@@ -47,7 +47,6 @@ namespace BDOLanguageDataTool
                 {
                     deflateStream.CopyTo(stream);
                 }
-                input.Close();
             }
             return stream;
         }
@@ -98,9 +97,7 @@ namespace BDOLanguageDataTool
                         reader.ReadBytes(4);
                         output.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}", strType, strID1, strID2, strID3, strID4, str);
                     }
-                    output.Close();
                 }
-                reader.Close();
             }
         }
 
@@ -131,7 +128,6 @@ namespace BDOLanguageDataTool
                     writeBinary.Write(strBytes);
                     writeBinary.Write(zeroes);
                 }
-                reader.Close();
             }
             return stream;
         }
