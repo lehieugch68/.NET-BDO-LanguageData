@@ -93,7 +93,7 @@ namespace BDOLanguageDataTool
                         UInt16 strID2 = reader.ReadUInt16();
                         byte strID3 = reader.ReadByte();
                         byte strID4 = reader.ReadByte();
-                        string str = Encoding.Unicode.GetString(reader.ReadBytes(Convert.ToInt32(strSize * 2))).Replace("\n", "<lf>");
+                        string str = Encoding.Unicode.GetString(reader.ReadBytes(Convert.ToInt32(strSize * 2))).Replace("\n", "<lf>").Replace($"{(char)34}", "<quot>");
                         reader.ReadBytes(4);
                         output.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}", strType, strID1, strID2, strID3, strID4, str);
                     }
@@ -111,12 +111,16 @@ namespace BDOLanguageDataTool
                 while (!reader.EndOfStream)
                 {
                     string[] content = reader.ReadLine().Split(new string[] { "\t" }, StringSplitOptions.None);
+                    foreach (string column in content)
+                    {
+                        string = string.TrimStart($"{(char)34").TrimEnd($"{(char)34}");
+                    }
                     byte[] strType = BitConverter.GetBytes(Convert.ToUInt32(content[0]));
                     byte[] strID1 = BitConverter.GetBytes(Convert.ToUInt32(content[1]));
                     byte[] strID2 = BitConverter.GetBytes(Convert.ToUInt16(content[2]));
                     byte strID3 = Convert.ToByte(content[3]);
                     byte strID4 = Convert.ToByte(content[4]);
-                    string str = content[5].Replace("<lf>", "\n");
+                    string str = content[5].Replace("<lf>", "\n").Replace("<quot>", $"{(char)34}");
                     byte[] strBytes = Encoding.Unicode.GetBytes(str);
                     byte[] strSize = BitConverter.GetBytes(str.Length);
                     writeBinary.Write(strSize);
